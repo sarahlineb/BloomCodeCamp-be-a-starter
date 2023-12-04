@@ -75,4 +75,3 @@ public class AssignmentController {
         return token != null && !token.isEmpty();
     }
 }
-
