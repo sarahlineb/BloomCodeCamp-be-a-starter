@@ -3,6 +3,7 @@ package com.hcc.controllers;
 import com.hcc.entities.User;
 import com.hcc.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +23,8 @@ public class UserController {
     public ResponseEntity<User> registerUser(@RequestBody User newUser) {
         // Perform necessary validation and save the new user to the database
         User savedUser = userRepository.save(newUser);
-        return ResponseEntity.ok(savedUser);
+        //changed entity
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
